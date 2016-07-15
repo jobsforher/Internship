@@ -1,0 +1,51 @@
+<html>
+
+
+<title id="t1">Job,Company,Loc,Exp</title>
+<head>
+<meta name="description" />
+<meta name="keywords" />
+</head>
+<body>
+<p>Hello</p>
+<h4></h4>
+<h4>S/W</h4>
+<p>Industry</p>
+<h4>IT</h4>
+
+<p id="demo"></p>
+</body>
+
+<script>
+
+
+        
+
+function meta() { 
+   var metas = document.getElementsByTagName('meta'); 
+   
+   //var h4 = h();
+var str=document.title;
+	var pstr= new Array();
+	pstr=str.split(',');
+		
+for (var i=0; i<metas.length; i++) { 
+      if (metas[i].getAttribute("name") == "description") { 
+         metas[i].setAttribute("content","Job Description for "+pstr[0]+" in "+ pstr[1]+","+pstr[3]+" of Experience. Find "+document.getElementsByTagName("h4")[1].innerHTML+" jobs. Apply for "+document.getElementsByTagName("h4")[2].innerHTML+" jobs. Register for free and upload your resume."); 
+      }
+      if (metas[i].getAttribute("name") == "keywords")
+      {
+       metas[i].setAttribute("content",pstr[0]+", Jobs by "+ pstr[1]+", Jobs in "+pstr[2]+", "+document.getElementsByTagName("h4")[1].innerHTML+", "+document.getElementsByTagName("h4")[2].innerHTML); 
+      }
+      
+   }
+
+    //document.write(metas[0].getAttribute("content")); 
+}
+window.onload=meta; 
+
+
+</script>
+
+
+</html>

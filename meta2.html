@@ -1,0 +1,82 @@
+<html>
+
+<head>
+<meta name="description"/>
+<meta name="keywords"/>
+
+<script>
+
+function meta() { 
+   var metas = document.getElementsByTagName('meta'); 
+   
+   
+	var url=window.location.href;
+	
+	var pstr= new Array();
+	pstr=url.split('?');
+	var sp=pstr[1];
+	var sp1 = new Array();
+	sp1=sp.split('&')
+	var s=new Array();
+	var s1 = new Array();
+	s=sp1[0].split('=')
+	var d=new Array();
+	d=sp1[1].split('=')
+	s[1]=s[1].replace('+',' ');
+	
+	
+	
+	
+	var k=0;
+	for(var i=0;i<s1.length;i++)
+	{
+			str[k]=s1[i];
+			k++;
+			
+	}
+	var l =new Array();
+	l=sp1[2].split('=');
+	
+	
+	var str= new Array();
+	var l1 = new Array();
+	l1=l[1].split('+');
+	for(var j=0;j<l1.length;j++)
+	{
+		if(l1[j].match(/%2C/g))
+		{
+		
+			l1[j]=l1[j].replace('%2C',' ');
+			str[k]=l1[j];
+			k++;
+		
+		}
+		else
+		{
+			str[k]=l1[j];
+			k++;
+		
+		}
+		
+	}
+	
+	
+	for (var i=0; i<metas.length; i++) { 
+      if (metas[i].getAttribute("name") == "description") { 
+      	for(var m=0;m<str.length;m++)
+         metas[i].setAttribute("content","Find "+s[1]+" jobs in "+str+" around "+d[1]+" km");
+        
+      }
+      if (metas[i].getAttribute("name") == "keywords")
+      {
+       metas[i].setAttribute("content", s[1]+", "+str+", "+d[1]+" km"); 
+      }
+     
+   }
+}
+
+window.onload=meta; 
+
+
+</script>
+</html>
